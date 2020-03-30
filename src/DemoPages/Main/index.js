@@ -9,10 +9,12 @@ class Main extends React.Component {
 
     render(){
         return (
-            <Fragment>
-                <AppMain></AppMain>
-            </Fragment>
-        )
+          <Fragment>
+            <div className="app-container app-theme-white fixed-header fixed-sidebar fixed-footer closed-sidebar closed-sidebar-mobile">
+              <AppMain></AppMain>
+            </div>
+          </Fragment>
+        );
     }
 }
 
