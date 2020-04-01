@@ -9,9 +9,9 @@
   z-index: 10;
   transition: all .2s;
 
-  // &.header-shadow {
-  //   box-shadow: $box-shadow-default;
-  // }
+  &.header-shadow {
+    box-shadow: $box-shadow-default;
+  }
 
   .app-header__content {
     display: flex;

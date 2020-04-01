@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-import { Route } from "react-router-dom";
+import React, {Fragment} from 'react';
+import {Route} from 'react-router-dom';
 
 // DASHBOARDS
 
@@ -11,21 +11,19 @@ import AppHeader from '../../Layout/AppHeader/';
 import AppSidebar from '../../Layout/AppSidebar/';
 import AppFooter from '../../Layout/AppFooter/';
 
-
-const Dashboadrs = ()=>(
+const Dashboards = ({match}) => (
     <Fragment>
-        <AppHeader></AppHeader>
+        <AppHeader/>
         <div className="app-main">
-            <AppSidebar></AppSidebar>
-            <div className="app-main_outer">
-                <div className="app-main_inner">
-                   <BasicDashboard></BasicDashboard>
+            <AppSidebar/>
+            <div className="app-main__outer">
+                <div className="app-main__inner">
+                    <Route path={`${match.url}/basic`} component={BasicDashboard}/>
                 </div>
-                <AppFooter></AppFooter>
+                <AppFooter/>
             </div>
         </div>
     </Fragment>
-)
+);
 
-
-export default Dashboadrs
+export default Dashboards;

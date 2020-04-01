@@ -9,7 +9,7 @@ import { toast, Bounce } from "react-toastify";
 
 import { faCalendarAlt, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import avatar1 from "../../../assets/utils/images/avatars/1.jpg";
+import avatar1 from "../../../assets/utils/images/avatars/12.jpg";
 
 class UserBox extends React.Component {
     constructor(props){

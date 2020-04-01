@@ -1,7 +1,8 @@
-// import all reducer here 
+
+import {  combineReducers } from "redux";
+import ThemeOptionsReducer from "./ThemeOptionsReducer";
 
 
-
-// export default {
-//    all  reducers 
-// }
+export default combineReducers({
+      ThemeOptions: ThemeOptionsReducer
+    })

@@ -1,28 +1,28 @@
 import React, { Component } from 'react';
+import { createStore} from "redux";
 import ReactDOM from 'react-dom';
 import { HashRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import Main from "./DemoPages/Main";
+import App from "./App"
 import "./assets/base.scss";
+import rootReducer from "./reducers";
 
-// import configureStore from "./config/configureStore";
-
-// const store = configureStore();
+const store = createStore(rootReducer);
 const rootElement = document.getElementById("root");
 
 
 // ReactDOM.render(element, container[, callback])
 const renderApp = (Component) =>{
   ReactDOM.render(
-      // <Provider store={store}>
+      <Provider store={store}>
         <HashRouter>
           <Component></Component>
         </HashRouter>
-      // </Provider>
+       </Provider>
       ,rootElement
   )
 }
 
 
-renderApp(Main);
+renderApp(App);
 

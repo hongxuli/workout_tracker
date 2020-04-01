@@ -1,20 +1,70 @@
 import React, { Component, Fragment } from "react";
-
-
-
+import { connect } from "react-redux";
+import cx from "classnames";
+import Nav from "../AppNav/VerticalNavWrapper";
+import HeaderLogo from "../AppLogo";
+import { setEnableMobileMenu } from "../../actions/index";
+import PerfectScrollbar from "react-perfect-scrollbar";
 class AppSidebar extends Component {
+  state = {};
 
+  toggleMobileSidebar = () => {
+    let { enableMobileMenu, setEnableMobileMenu } = this.props;
+    setEnableMobileMenu(!enableMobileMenu);
+  };
 
-    render(){
+  render() {
+    let {
+      backgroundColor,
+      enableBackgroundImage,
+      enableSidebarShadow,
+      backgroundImage,
+      backgroundImageOpacity
+    } = this.props;
 
-
-        return (
-          <Fragment>
-            <div className="app-sidebar__inner">this is sidebar</div>
-          </Fragment>
-        );
-    }
+    return (
+      <Fragment>
+        <div
+          className="sidebar-mobile-overlay"
+          onClick={this.toggleMobileSidebar}
+        />
+        <div
+          className={cx("app-sidebar", backgroundColor, {
+            "sidebar-shadow": enableSidebarShadow
+          })}
+        >
+          <HeaderLogo />
+          <PerfectScrollbar>
+          <div className="app-sidebar__inner">
+            <Nav/>
+          </div>
+          </PerfectScrollbar>
+          <div
+            className={cx("app-sidebar-bg", backgroundImageOpacity)}
+            style={{
+              backgroundImage: enableBackgroundImage
+                ? "url(" + backgroundImage + ")"
+                : null
+            }}
+          ></div>
+        </div>
+      </Fragment>
+    );
+  }
 }
 
 
-export default AppSidebar
+const mapStateToProps = state => ({
+  enableBackgroundImage: state.ThemeOptions.enableBackgroundImage,
+  enableSidebarShadow: state.ThemeOptions.enableSidebarShadow,
+  enableMobileMenu: state.ThemeOptions.enableMobileMenu,
+  backgroundColor: state.ThemeOptions.backgroundColor,
+  backgroundImage: state.ThemeOptions.backgroundImage,
+  backgroundImageOpacity: state.ThemeOptions.backgroundImageOpacity
+});
+
+const mapDispatchToProps = dispatch => ({
+  setEnableMobileMenu: enable => dispatch(setEnableMobileMenu(enable))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppSidebar);
