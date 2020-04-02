@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 
 // DASHBOARDS
 
-import CardsContainer from './components/CardsContainer';
+import TypeContainer from "./components/TypeContainer";
 
 // Layout
 
@@ -12,20 +12,20 @@ import AppSidebar from '../../Layout/AppSidebar/';
 import AppFooter from '../../Layout/AppFooter/';
 
 
-const Actions = ()=>(
-    <Fragment>
-        <AppHeader></AppHeader>
-        <div className="app-main">
-            <AppSidebar></AppSidebar>
-            <div className="app-main__outer">
-                <div className="app-main__inner">
-                   <CardsContainer></CardsContainer>
-                </div>
-                <AppFooter></AppFooter>
-            </div>
+const Actions = () => (
+  <Fragment>
+    <AppHeader></AppHeader>
+    <div className="app-main">
+      <AppSidebar></AppSidebar>
+      <div className="app-main__outer">
+        <div className="app-main__inner">
+          <TypeContainer></TypeContainer>
         </div>
-    </Fragment>
-)
+        <AppFooter></AppFooter>
+      </div>
+    </div>
+  </Fragment>
+);
 
 
 export default Actions;
